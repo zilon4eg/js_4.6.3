@@ -1,4 +1,6 @@
-function sliderLogic(arrow, sliders, slidersCount, sliderActive) {
+function sliderLogic(arrow, sliders, slidersCount, sliderActivePosition) {
+    let sliderActive = sliderActivePosition;
+
     if (arrow.className.includes('slider__arrow_prev')) {
         sliders[sliderActive].className = 'slider__item';
 
@@ -6,8 +8,6 @@ function sliderLogic(arrow, sliders, slidersCount, sliderActive) {
         if (sliderActive < 0) {
             sliderActive = slidersCount - 1;
         }
-
-        sliders[sliderActive].className = 'slider__item slider__item_active';
     }
 
     if (arrow.className.includes('slider__arrow_next')) {
@@ -17,9 +17,9 @@ function sliderLogic(arrow, sliders, slidersCount, sliderActive) {
         if (!(sliderActive < slidersCount)) {
             sliderActive = 0;
         }
-
-        sliders[sliderActive].className = 'slider__item slider__item_active';
     }
+    
+    sliders[sliderActive].className = 'slider__item slider__item_active';
     return sliderActive;
 }
 
